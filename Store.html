@@ -7,6 +7,8 @@
 	<meta name="description" content="This is the description">
 
 	<link rel="stylesheet" href="styles.css" />
+	<script src="store.js" async></script>
+	<!--async allows the browser to load the script AND the body and not the script first-->
 </head>
 
 <body>
@@ -123,7 +125,7 @@
 			<span class="cart-quantity cart-header cart-column">QUANTITY</span>
 		</div>
 
-		<div class="items">
+		<div class="cart-items">
 
 			<div class="cart-row">
 
@@ -135,7 +137,7 @@
 				<span class="cart-price cart-column">$12.99</span>
 
 				<div class="cart-quantity cart-column">
-					<input type="number" value="1" class="cart-quantity-input">
+					<input type="number" value="2" class="cart-quantity-input">
 					<button class="btn btn-danger">Remove</button>
 				</div>
 
@@ -151,9 +153,10 @@
 				<span class="cart-price cart-column">$32.99</span>
 
 				<div class="cart-quantity cart-column">
-					<input type="number" value="1" class="cart-quantity-input">
-					<button class="btn btn-danger">Remove</button>
+					<input type="number" value="2" class="cart-quantity-input">
+					<button type="button" class="btn btn-danger">Remove</button>
 				</div>
+
 			</div>
 
 		</div>
