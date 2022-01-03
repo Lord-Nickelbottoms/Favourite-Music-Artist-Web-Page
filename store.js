@@ -52,6 +52,7 @@ function quantityChanged(event)
 
 function addToCartClicked(event)
 {
+	//we're getting the title, price and image variables to hold the info from the button that is clicked
 	var button = event.target
 	var shopItem = button.parentElement.parentElement
 	var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
@@ -59,7 +60,10 @@ function addToCartClicked(event)
 
 	var imageSrc = shopItem.getElementsByClassName('shop-item-image')[0].src
 
+	console.log(title, price, imageSrc)
+
 	addItemToCart(title, price, imageSrc)
+	updateCartTotal()
 }
 
 
@@ -98,6 +102,9 @@ function addItemToCart(title, price, imageSrc)
 
 	cartRow.innerHTML = cartRowContents
 	cartItems.append(cartRow)
+
+	cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
+	//this is to get the Remove button to work on the new item in the cart as ready() is only added to those that are already present
 }
 
 
