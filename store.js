@@ -29,6 +29,21 @@ function ready()
 		var button = addToCartButton[i]
 		button.addEventListener("click", addToCartClicked)
 	}
+
+	document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
+}
+
+function purchaseClicked()
+{
+	alert("Thank You for your purchase")
+
+	var cartItems = document.getElementsByClassName('cart-items')[0]
+
+	while (cartItems.hasChildNodes()) { //is there any children inside the cart item
+		cartItems.removeChild(cartItems.firstChild)
+	}
+
+	updateCartTotal()
 }
 
 
@@ -95,16 +110,18 @@ function addItemToCart(title, price, imageSrc)
 				<span class="cart-price cart-column">${price}</span>
 
 				<div class="cart-quantity cart-column">
-					<input type="number" value="2" class="cart-quantity-input">
+					<input type="number" value="1" class="cart-quantity-input">
 					<button type="button" class="btn btn-danger">Remove</button>
 				</div>
 	`
 
 	cartRow.innerHTML = cartRowContents
-	cartItems.append(cartRow)
+	cartItems.append(cartRow)	//adds the contents to the document
 
 	cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
 	//this is to get the Remove button to work on the new item in the cart as ready() is only added to those that are already present
+
+	cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
 }
 
 
